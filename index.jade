@@ -1,0 +1,40 @@
+body
+    +state
+    +actionsWrap
+
+template(name='state')
+    +monster
+    +overlays
+
+
+template(name='actionsWrap')
+    .Actions
+        span.title git
+        +actionsObservation
+        +actionsMutation
+    
+template(name='actionsObservation')
+    .ActionsObservation
+    each action in actions
+        button.BtnAction {{action}}
+
+template(name='actionsMutation')
+    .ActionsMutation
+        button.Action {{action}}
+        button.Action {{action}}
+        button.Action {{action}}
+
+template(name='monster')
+    .State
+        .State-circle
+
+template(name='overlays')
+    .overlays
+        +overlayStatus
+        +overlayDiff
+
+template(name='overlayDiff')
+    
+template(name='overlayStatus')
+    p {{status}} hey
+

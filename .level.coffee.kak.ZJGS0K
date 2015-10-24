@@ -1,0 +1,18 @@
+# Briefing: init repo and commit codebase
+# step1: init
+# status: not a git repo
+# diff: not a git repo
+# visualisation: grey/unknown monster / empty box
+ 
+# feedback: initialized repository
+
+# step2: add .
+# status:
+# red
+
+# step3: commit
+#
+#
+
+class GameState
+    constructor: (@steps,

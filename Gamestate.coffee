@@ -1,15 +1,16 @@
 class @GameState
 
-    constructor: (@states, @inputs, @output, @transitions) ->
+    constructor: (@level) ->
         @current = 0
 
     get: ->
-        if @states[@current]?
-            return @states[@current]
+        if @level[@current]?
+            return @level[@current]
         return 'tamed'
     next: -> @current++
-    getAllTransitions: ->
-        console.log transitions for transition in step.transitions for step in @states
-        console.log step.transitions for step in @states
-    #mutate: (t
+    getAllSolutions: ->
+        solutions = []
+        for step in @level
+            solutions.push step.solution
+        return solutions
 
