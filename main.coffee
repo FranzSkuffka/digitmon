@@ -11,6 +11,13 @@ class Game
         @state = new GameState currentLevel
         @actions= @state.getAllSolutions()
     performAction: (action) ->
+        console.log "performAction"
+        console.log _()
+        if _.isMatch(action, @state.getSolution())
+            console.log "is match"
+            return @state.next()
+        @state = lost
+
     getState: -> @currentState
 
     getActions: -> @actions
@@ -18,6 +25,9 @@ class Game
 game = new Game initRepo
 
 if Meteor.isClient
+    game.performAction
+        type: 'init'
+            
     Template.actionsObservation.helpers
         actions:
             [
@@ -34,3 +44,4 @@ if Meteor.isClient
         'click button': ->
             state.next()
             Session.set('status', state.get().observations.status)
+

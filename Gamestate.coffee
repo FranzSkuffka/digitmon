@@ -12,5 +12,6 @@ class @GameState
         solutions = []
         for step in @level
             solutions.push step.solution
-        return solutions
+        return solutions  
+    getSolution: -> @get().solution	
 
