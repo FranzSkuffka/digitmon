@@ -58,8 +58,11 @@ $button
             display flex
     &-parameterType
         @extend $button
-        background orange
+        background blue
         padding 20px
+        color white
+        &:hover
+            background black 
     &:hover
         background black
     padding 20px
@@ -87,3 +90,12 @@ $button
         max-height 300px
         background grey
         border-radius 50%
+input[type=text]
+    border none
+    padding-left 10px
+    outline none
+    font-size 25px
+    transition 0.3s
+    &:focus
+        background red
+        color white

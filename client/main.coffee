@@ -51,9 +51,16 @@ if Meteor.isClient
             Session.get('view')
             game.actions if game?
 
-
+    Template.actionsObservation.events
+        'click .Action': ->
+            observationCommand = event.target.dataset.actiontype
+            observations = game.state.currentStep.observations
+            if observations?
+                if observations[observationCommand]
+                    Session.set 'observation', observations[observationCommand]
 
     performAndUpdateGame = (action)->
+        Session.set 'observation', ''
         console.log 'PERFORMANDUPDATE'
         game.performAction(action)
         console.log game

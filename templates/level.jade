@@ -12,7 +12,6 @@ template(name='state')
 
 template(name='actionsWrap')
     .Actions
-        span.Actions-prefix git
         +actionsObservation
         +actionsMutation
         +actionsParameters
@@ -39,7 +38,7 @@ template(name='parameter')
         button(data-parametertype='{{name}}').Action-parameterType --{{name}}
 template(name='monster')
     .State
-        .State-circle
+        div(class="State-circle {{state}}")
 
 template(name='overlays')
     .overlays
@@ -57,5 +56,5 @@ template(name='overlayWon')
         .message-won Cowboy coding seems kind of silly, right?
 
 template(name='overlayObservation')
-    p {{status}}
+    div.observation {{status}}
 
