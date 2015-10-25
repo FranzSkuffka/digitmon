@@ -39,11 +39,13 @@ template(name='monster')
 
 template(name='overlays')
     .overlays
-        +overlayStatus
-        +overlayDiff
-
-template(name='overlayDiff')
+        +overlayObservation
+        +overlayLost
     
-template(name='overlayStatus')
+template(name='overlayLost')
+    div(class='LostOverlay {{visibilityClass}}')
+        .message-lost Success in IT requires maximum efficiency!
+        .Retry Try again.
+template(name='overlayObservation')
     p {{status}}
 

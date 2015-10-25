@@ -1,6 +1,7 @@
 game = {}
 if Meteor.isClient
     Session.set 'view', 'selection'
+    Session.set 'lost', false
     Template.actionsObservation.helpers
         actions:
             [
@@ -11,9 +12,9 @@ if Meteor.isClient
                 new Command 'branch'
             ]
 
-    Template.overlayStatus.helpers
+    Template.overlayObservation.helpers
         status: ->
-            Session.get('status')
+            Session.get('observation')
     Template.actionsMutation.helpers
         actions: ->
             console.log 'retrieving actions'
@@ -33,6 +34,7 @@ if Meteor.isClient
             Session.set('showParameters', true)
             # check action 
             game.performAction(action)
+            Session.set('lost', true) if game.state == 'lost'
     Template.header.events
         'click .title': ->
             console.log 'return to overview'
@@ -45,6 +47,7 @@ if Meteor.isClient
                 return 'is-visible'
     Template.LevelSummary.events
         'click .LevelSummary': ->
+            Session.set('lost',false)
             console.log 'selected level'
             level = Levels.findOne(@_id)
             console.log 'DB ENTRY'
@@ -62,4 +65,11 @@ if Meteor.isClient
         briefing: ->
             Session.get('view')
             game.briefing if game?
+    Template.overlayLost.helpers
+        visibilityClass: ->
+            if Session.get('lost') == true
+                console.log 'setting visibility'
+                return 'is-visible'
+
+
 
