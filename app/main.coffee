@@ -35,6 +35,19 @@ if Meteor.isClient
             console.log 'return to overview'
             Session.set('view', 'selection')
     Template.levelSelection.helpers
+        levels: ->
+            Levels.find()
         visibilityClass: ->
             if Session.get('view') == 'selection'
                 return 'is-visible'
+    Template.LevelSummary.events
+        'click .LevelSummary': ->
+            console.log 'selecting level'
+            console.log @_id
+            console.log event.target
+            console.log 'selected level'
+            level = Levels.findOne(@_id)
+            console.log 'DB ENTRY'
+            console.log level
+            new Level level
+

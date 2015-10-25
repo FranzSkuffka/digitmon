@@ -20,6 +20,6 @@ Schemas.Level = new SimpleSchema
             params: Object
         ]
 
-Levels.insert
-    title: 'Hello World'
-    steps: initRepo
+# Levels.insert
+#     title: 'Hello World'
+#     steps: initRepo

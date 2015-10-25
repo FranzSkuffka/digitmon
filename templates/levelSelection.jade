@@ -1,9 +1,15 @@
 template(name='levelSelection')
     div(class='LevelSummaries {{visibilityClass}}')
         .u-headerSpacer
-        .LevelSummary
-            .LevelSummary-title Initialize this!
-            .LevelSummary-Briefing Initialize a git repo and commit an existing codebase.
-        .LevelSummary
-            .LevelSummary-title Clean Pull
-            .LevelSummary-Briefing Commit pending changes and pull from remote.
+        each levels
+            +LevelSummary
+        // .LevelSummary
+            // .LevelSummary-title Initialize this!
+            // .LevelSummary-Briefing Initialize a git repo and commit an existing codebase.
+        // .LevelSummary
+            // .LevelSummary-title Clean Pull
+            // .LevelSummary-Briefing Commit pending changes and pull from remote.
+template(name='LevelSummary')
+    .LevelSummary
+        .LevelSummary-title {{title}}
+        .LevelSummary-Briefing {{description}}
