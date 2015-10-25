@@ -1,29 +1,10 @@
-head
-    link(href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,700' rel='stylesheet' type='text/css')
-body
-    header
-        .title gitchallenge
-    .header-spacer
-    +level
-    +levelSelection
-
 template(name='level')
     +state
     +actionsWrap
 
-template(name='levelSelection')
-    .Levels
-        .Level
-            .Level-title Initialize this!
-            .Level-Briefing Initialize a git repo and commit an existing codebase.
-        .Level
-            .Level-title Clean Pull
-            .Level-Briefing Commit pending changes and pull from remote.
-
 template(name='state')
     +monster
     +overlays
-
 
 template(name='actionsWrap')
     .Actions
