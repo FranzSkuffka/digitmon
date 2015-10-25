@@ -1,6 +1,9 @@
 $button
     padding 10px
     font-family inherit
+button
+    border none
+
 
 body
     font-family Roboto Mono
@@ -9,9 +12,6 @@ header
     padding 10px
     background white
     width 100%
-.createLevel
-    @extend $button
-    display flex
 .header-spacer
     height 50px
 
@@ -46,14 +46,17 @@ normalize-css()
     
 
 .Actions
+    &-prefix
+        absolute top -10px left 10px
+        line-height 20px
+
+    background blue
     fixed bottom 0 left 0
     width 100%
     display flex
-    
-    background grey
+
     &Observation
         background deepskyblue
-        background black
     &Mutation
     &Observation
         flex-grow 1
@@ -61,7 +64,31 @@ normalize-css()
         flex-wrap wrap
     
 .Action
+    background transparent
+    color white
+    &-parameters
+        absolute top 0 left 0
+        height 100%
+        width 100%
+        display none
+        &.is-visible
+            display flex
+    &-parameterType
+        padding 20px
+    &:hover
+        background black
     padding 20px
+    &:hover + &-help
+        display block
+    &-help
+        display none
+        absolute top -60px0 left 0
+        box-sizing border-box
+        padding 20px
+        height 60px
+        line-height 20px
+        width 100%
+        overflow visible
     
 
 .State

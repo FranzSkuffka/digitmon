@@ -3,9 +3,11 @@ head
 body
     header
         .title gitchallenge
-        button.createLevel
     .header-spacer
+    +level
     +levelSelection
+
+template(name='level')
     +state
     +actionsWrap
 
@@ -25,8 +27,7 @@ template(name='state')
 
 template(name='actionsWrap')
     .Actions
-        span.title git
-        input(type='text').Action-Parameters
+        span.Actions-prefix git
         +actionsObservation
         +actionsMutation
         +actionsParameters
@@ -41,10 +42,11 @@ template(name='actionsMutation')
         each action in actions
             button(data-actiontype='{{action.type}}').Action {{action.type}}
             .Action-help {{action.description}}
-        button.Action {{action}}
-        button.Action {{action}}
 
 template(name='actionsParameters')
+    .Action-parameters
+        button.Action-parameterType --Message
+        input(type='text').Action-parameterValue
 
 template(name='monster')
     .State
@@ -58,5 +60,5 @@ template(name='overlays')
 template(name='overlayDiff')
     
 template(name='overlayStatus')
-    p {{status}} hey
+    p {{status}}
 
