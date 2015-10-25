@@ -6,7 +6,7 @@ class @Level
         # retrieve all actions from currentLevel
         @actions = []
         for solution in @state.getAllSolutions()
-            @actions.push new Command solution.type
+            @actions.push new Command solution.commandType
 
     performAction: (action) ->
         console.log 'performing action'

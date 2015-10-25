@@ -16,12 +16,12 @@ template(name='actionsWrap')
 template(name='actionsObservation')
     .ActionsObservation
         each action in actions
-            button(data-actiontype='{{action.type}}').Action {{action.type}}
+            button(data-actiontype='{{action.commandType}}').Action {{action.commandType}}
 
 template(name='actionsMutation')
     .ActionsMutation
         each action in actions
-            button(data-actiontype='{{action.type}}').Action {{action.type}}
+            button(data-actiontype='{{action.commandType}}').Action {{action.commandType}}
             .Action-help {{action.description}}
 
 template(name='actionsParameters')

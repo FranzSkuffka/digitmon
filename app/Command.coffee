@@ -16,9 +16,10 @@ commandsLibrary =
 
 
 class @Command
-    constructor: (@type) ->
-        console.log @type
-        @description = commandsLibrary[@type].description
-        @parameters = commandsLibrary[@type].parameters
+    constructor: (@commandType) ->
+        console.log @commandType
+        console.log commandsLibrary
+        @description = commandsLibrary[@commandType].description
+        @parameters = commandsLibrary[@commandType].parameters
 
 

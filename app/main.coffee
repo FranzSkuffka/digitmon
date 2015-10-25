@@ -22,10 +22,10 @@ if Meteor.isClient
     Template.actionsMutation.events
         'click .Action': ->
             action = {}
-            # retrive action type
-            action.type = event.target.dataset.actiontype
+            # retrive action commandType
+            action.commandType = event.target.dataset.actioncommandType
             # retrieve parameters
-            command = new Command action.type
+            command = new Command action.commandType
             console.log command.parameters
             Session.set('showParameters', true)
             # check action 

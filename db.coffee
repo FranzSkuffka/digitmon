@@ -15,7 +15,10 @@ Schemas.Level = new SimpleSchema
         label: 'Briefing'
         optional: true
     steps:
-        type: [Object]
+        type: [
+            commandType: String
+            params: Object
+        ]
 
 Levels.insert
     title: 'Hello World'
