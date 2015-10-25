@@ -29,10 +29,13 @@ template(name='actionsMutation')
             .Action-help {{action.description}}
 
 template(name='actionsParameters')
-    .Action-parameters
-        button.Action-parameterType --Message
+    div(class='Action-parameters {{visibilityClass}}')
+        each parameters 
+            +parameter
         input(type='text').Action-parameterValue
-
+template(name='parameter')
+    .Action-parameter
+        button(data-parametertype='{{name}}').Action-parameterType --{{name}}
 template(name='monster')
     .State
         .State-circle
@@ -41,11 +44,17 @@ template(name='overlays')
     .overlays
         +overlayObservation
         +overlayLost
+        +overlayWon
     
 template(name='overlayLost')
     div(class='LostOverlay {{visibilityClass}}')
         .message-lost Success in IT requires maximum efficiency!
         .Retry Try again.
+
+template(name='overlayWon')
+    div(class='WonOverlay {{visibilityClass}}')
+        .message-won Cowboy coding seems kind of silly, right?
+
 template(name='overlayObservation')
     p {{status}}
 

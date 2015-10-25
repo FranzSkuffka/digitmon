@@ -21,10 +21,7 @@ console.log 'loading levels'
         solution:
             commandType: 'commit'
             parameters:
-                [
-                    message: 'commit -m "init, add website"'
-                ]
-
+                    message: 'init'
         observations:
             status: 'staged: index.html, no untracked' # extend for different statuses
             diff: ''

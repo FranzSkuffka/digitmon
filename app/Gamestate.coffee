@@ -2,15 +2,17 @@ class @GameState
 
     constructor: (@level) ->
         @current = 0
+        @currentStep = @level[@current]
 
-    get: ->
+    next: ->
+        @current++
         if @level[@current]?
-            return @level[@current]
+            return @currentStep = @level[@current]
         return 'tamed'
-    next: -> @current++
     getAllSolutions: ->
         solutions = []
         for step in @level
             solutions.push step.solution
-        return solutions  
+        return solutions
+
 

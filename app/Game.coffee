@@ -1,7 +1,6 @@
 class @Game
     constructor: (@level) ->
         # initialize game with level steps
-        console.log @level.steps
         @state = new GameState @level.steps
         @briefing = @level.briefing
         @title = @level.title
@@ -12,13 +11,16 @@ class @Game
             @actions.push new Command solution.commandType
 
     performAction: (action) ->
-        console.log 'performing action'
-        console.log action
-        if _.isEqual action, @state.get().solution
-            console.log 'is match'
-            return @state.next()
-        console.log 'is lost'
-        @state = 'lost'
+        if _.isEqual action, @state.currentStep.solution
+            @state.next()
+            console.log @state.current
+            console.log @state.level.length
+            if @state.current == @state.level.length
+                console.log 'GAME WON'
+                @state = 'won'
+            return
+        else
+            @state = 'lost'
 
     getState: -> @currentState
 

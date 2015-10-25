@@ -2,11 +2,15 @@ commandsLibrary =
     init:
         description: 'Start new git repository in current folder'
     commit:
-        description: 'Save added changes as new entry in git log'
+        parameters:[
+            'message'
+        ]
     add:
         description: 'Add changes that should be committed'
-        parameters:
-            'message': 'string'
+        parameters:[
+            '_default'
+        ]
+
     status:
         description: 'show what is going on in a repo'
     branch:
@@ -17,7 +21,6 @@ commandsLibrary =
 
 class @Command
     constructor: (@commandType) ->
-        console.log @commandType
         @description = commandsLibrary[@commandType].description
         @parameters = commandsLibrary[@commandType].parameters
 
