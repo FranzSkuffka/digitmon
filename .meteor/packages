@@ -21,3 +21,5 @@ insecure                # Allow all DB writes from clients (for prototyping)
 coffeescript
 mquandalle:jade
 stolinski:stylus-multi
+aldeed:collection2
+msavin:mongol
