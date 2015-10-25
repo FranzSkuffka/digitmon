@@ -21,6 +21,7 @@ template(name='actionsObservation')
     .ActionsObservation
         each action in actions
             button(data-actiontype='{{action.commandType}}').Action {{action.commandType}}
+            .Action-help {{action.description}}
 
 template(name='actionsMutation')
     .ActionsMutation

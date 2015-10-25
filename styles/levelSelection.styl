@@ -4,7 +4,7 @@
     width 100vw
     background linear-gradient(90deg, #606c88 10%, #3f4c6b 90%)
     flex-wrap wrap
-    align-items flex-start
+    align-items stretch
     align-content flex-start
     justify-content center
     pointer-events none
@@ -12,6 +12,7 @@
     transform scale(2)
     display flex
     transition all 0.3s ease-out-quart
+    overflow-y auto
     &.is-visible
         transform scale(1)
         opacity 1

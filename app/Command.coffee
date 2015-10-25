@@ -12,11 +12,11 @@ commandsLibrary =
         ]
 
     status:
-        description: 'show what is going on in a repo'
+        description: 'Show changed files and differences from remote'
     branch:
-        description: 'show what is going on in a repo'
+        description: 'show working versions of your repository'
     diff:
-        description: 'show what is going on in a repo'
+        description: 'Show exact changes inside files'
 
 
 class @Command
