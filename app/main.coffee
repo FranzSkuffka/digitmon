@@ -23,10 +23,18 @@ if Meteor.isClient
         'click .Action': ->
             action = {}
             # retrive action commandType
-            action.commandType = event.target.dataset.actioncommandType
+            action.commandType = event.target.dataset.actiontype
+            console.log event.target.dataset
             # retrieve parameters
             command = new Command action.commandType
-            console.log command.parameters
             Session.set('showParameters', true)
             # check action 
             level.performAction(action)
+    Template.header.events
+        'click .title': ->
+            console.log 'return to overview'
+            Session.set('view', 'selection')
+    Template.levelSelection.helpers
+        visibilityClass: ->
+            if Session.get('view') == 'selection'
+                return 'is-visible'

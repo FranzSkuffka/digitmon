@@ -1,14 +1,21 @@
 .LevelSummaries
-    absolute top 0 left 0
+    fixed top 0 left 0
     height 100vh
+    width 100vw
     background linear-gradient(90deg, #606c88 10%, #3f4c6b 90%)
     flex-wrap wrap
     align-items flex-start
     align-content flex-start
     justify-content center
-    display none
+    pointer-events none
+    opacity 0
+    transform scale(2)
+    display flex
+    transition all 0.3s ease-out-quart
     &.is-visible
-        display flex
+        transform scale(1)
+        opacity 1
+        pointer-events all
 
 .LevelSummary
     background white
