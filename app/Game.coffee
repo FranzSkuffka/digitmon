@@ -7,12 +7,6 @@ class @Level
         @actions = []
         for solution in @state.getAllSolutions()
             @actions.push new Command solution.type
-        if Meteor.isClient
-            Session.set('view','level')
-
-    lose: ->
-        Session.set('lost','true')
-    restart: ->
 
     performAction: (action) ->
         console.log 'performing action'
@@ -20,7 +14,8 @@ class @Level
         if _.isEqual action, @state.get().solution
             console.log 'is match'
             return @state.next()
-        @lose()
+        console.log 'is lost'
+        @state = 'lost'
 
     getState: -> @currentState
 

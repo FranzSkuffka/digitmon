@@ -1,5 +1,4 @@
-
-game = new Game initRepo
+level = new Level initRepo
 
 if Meteor.isClient
     Template.actionsObservation.helpers
@@ -15,13 +14,13 @@ if Meteor.isClient
     Template.overlayStatus.helpers
         status: ->
             Session.get('status')
-    console.log game.actions
+    console.log level.actions
     Template.actionsMutation.helpers
-        actions: game.actions
+        actions: level.actions
 
 
     Template.actionsMutation.events
-        'click button': ->
+        'click .Action': ->
             action = {}
             # retrive action type
             action.type = event.target.dataset.actiontype
@@ -30,4 +29,4 @@ if Meteor.isClient
             console.log command.parameters
             Session.set('showParameters', true)
             # check action 
-            game.performAction(action)
+            level.performAction(action)

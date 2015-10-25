@@ -1,8 +1,8 @@
 template(name='levelSelection')
-    .Levels
-        .Level
-            .Level-title Initialize this!
-            .Level-Briefing Initialize a git repo and commit an existing codebase.
-        .Level
-            .Level-title Clean Pull
-            .Level-Briefing Commit pending changes and pull from remote.
+    div(class='LevelSummaries {{visibilityClass}}')
+        .LevelSummary
+            .LevelSummary-title Initialize this!
+            .LevelSummary-Briefing Initialize a git repo and commit an existing codebase.
+        .LevelSummary
+            .LevelSummary-title Clean Pull
+            .LevelSummary-Briefing Commit pending changes and pull from remote.
