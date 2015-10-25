@@ -13,12 +13,18 @@ console.log 'loading levels'
         solution:
             type: 'add'
             parameters:
-                message: '.'
+                _default: '.'
         observations:
             status: 'untracked: index.html'
             diff: 'diff of index.html'
     ,
-        solution: 'commit -m "init, add website"'
+        solution:
+            type: 'commit'
+            parameters:
+                [
+                    message: 'commit -m "init, add website"'
+                ]
+
         observations:
             status: 'staged: index.html, no untracked' # extend for different statuses
             diff: ''
