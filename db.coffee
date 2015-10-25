@@ -20,6 +20,9 @@ Schemas.Level = new SimpleSchema
             params: Object
         ]
 
-# Levels.insert
-#     title: 'Hello World'
-#     steps: initRepo
+Levels.remove({})
+Levels.insert
+    title: 'InitThis!'
+    description: 'Init repo and add codebase'
+    briefing: 'Start tracking the existing codebase in git'
+    steps: initRepo

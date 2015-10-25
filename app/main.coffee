@@ -1,6 +1,6 @@
-level = new Level initRepo
-
+game = {}
 if Meteor.isClient
+    Session.set 'view', 'selection'
     Template.actionsObservation.helpers
         actions:
             [
@@ -14,9 +14,12 @@ if Meteor.isClient
     Template.overlayStatus.helpers
         status: ->
             Session.get('status')
-    console.log level.actions
     Template.actionsMutation.helpers
-        actions: level.actions
+        actions: ->
+            console.log 'retrieving actions'
+            Session.get('view')
+            console.log game
+            game.actions if game?
 
 
     Template.actionsMutation.events
@@ -29,7 +32,7 @@ if Meteor.isClient
             command = new Command action.commandType
             Session.set('showParameters', true)
             # check action 
-            level.performAction(action)
+            game.performAction(action)
     Template.header.events
         'click .title': ->
             console.log 'return to overview'
@@ -42,12 +45,21 @@ if Meteor.isClient
                 return 'is-visible'
     Template.LevelSummary.events
         'click .LevelSummary': ->
-            console.log 'selecting level'
-            console.log @_id
-            console.log event.target
             console.log 'selected level'
             level = Levels.findOne(@_id)
             console.log 'DB ENTRY'
             console.log level
-            new Level level
+            game = new Game level
+            Session.set 'view', 'level'
+    Template.Level.helpers
+        visibilityClass: ->
+            if Session.get('view') == 'level'
+                console.log 'setting visibility'
+                return 'is-visible'
+        title: ->
+            Session.get('view')
+            game.title if game?
+        briefing: ->
+            Session.get('view')
+            game.briefing if game?
 

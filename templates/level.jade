@@ -1,6 +1,10 @@
-template(name='level')
-    +state
-    +actionsWrap
+template(name='Level')
+    div(class='Level {{visibilityClass}}')
+        .Level-info
+            .Level-title {{title}}
+            .Level-briefing {{briefing}}
+        +state
+        +actionsWrap
 
 template(name='state')
     +monster

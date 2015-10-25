@@ -1,9 +1,12 @@
-class @Level
-    constructor: (currentLevel) ->
-        # initialize game with level
-        @state = new GameState currentLevel
+class @Game
+    constructor: (@level) ->
+        # initialize game with level steps
+        console.log @level.steps
+        @state = new GameState @level.steps
+        @briefing = @level.briefing
+        @title = @level.title
 
-        # retrieve all actions from currentLevel
+        # retrieve all actions from level
         @actions = []
         for solution in @state.getAllSolutions()
             @actions.push new Command solution.commandType
